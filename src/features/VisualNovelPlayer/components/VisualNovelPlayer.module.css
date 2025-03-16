@@ -1,0 +1,33 @@
+.vnContainer {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.vnPlayer {
+  --resolution-height: 1920;
+  --resolution-width: 1080;
+  overflow: hidden;
+  position: relative;
+  transform-origin: top left;
+}
+
+.vnPlayer:focus {
+  outline: none;
+}
+
+.transparentGrid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-conic-gradient(#8c8c8c 0% 25%, #7a7a7a 0% 50%) 0% 0% /
+    60px 60px;
+}
+
+.backgroundImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.imgur.com/Fxo8ylX.png') no-repeat center;
+}
