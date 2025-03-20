@@ -1,0 +1,50 @@
+{
+  "title": "Cool VN",
+  "author": "Me",
+  "resolution": {
+    "width": 1920,
+    "height": 1080
+  },
+  "characters": [
+    {
+      "id": "bob",
+      "name": "Bob",
+      "sprites": {
+        "normal": "/example-vn/images/bob_normal.png",
+        "smile": "/example-vn/images/bob_smile.png"
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "id": "start_scene",
+      "actions": [
+        {
+          "type": "dialogue",
+          "text": "Hey you!"
+        },
+        {
+          "type": "showCharacter",
+          "characterId": "bob",
+          "sprite": "normal",
+          "position": {
+            "x": 100,
+            "y": 100
+          }
+        },
+        {
+          "type": "dialogue",
+          "text": "Hello there!"
+        },
+        {
+          "type": "dialogue",
+          "text": "I hate you!"
+        },
+        {
+          "type": "dialogue",
+          "text": "very much!"
+        }
+      ]
+    }
+  ]
+}

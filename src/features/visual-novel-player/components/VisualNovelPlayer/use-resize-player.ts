@@ -33,10 +33,6 @@ function useResizePlayer({
   }
 
   useEffect(() => {
-    if (vnPlayerRef.current) {
-      vnPlayerRef.current.style.width = `${resolutionWidth}px`;
-      vnPlayerRef.current.style.height = `${resolutionHeight}px`;
-    }
     resizePlayer();
     window.addEventListener('resize', resizePlayer);
 
