@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const PositionSchema = z.object({
+export const CharacterPositionSchema = z.object({
   x: z.number(),
   y: z.number(),
 });
@@ -29,7 +29,7 @@ export const ShowCharacterActionSchema = z.object({
   type: z.literal('showCharacter'),
   characterId: z.string(),
   sprite: z.string(),
-  position: PositionSchema,
+  position: CharacterPositionSchema,
 });
 
 export const ActionSchema = z.discriminatedUnion('type', [
@@ -52,7 +52,7 @@ export const VnDataSchema = z.object({
   scenes: z.array(SceneSchema),
 });
 
-export type Position = z.infer<typeof PositionSchema>;
+export type Position = z.infer<typeof CharacterPositionSchema>;
 export type Resolution = z.infer<typeof ResolutionSchema>;
 export type CharacterSprites = z.infer<typeof CharacterSpritesSchema>;
 export type CharacterData = z.infer<typeof CharacterDataSchema>;

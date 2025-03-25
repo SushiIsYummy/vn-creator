@@ -5,7 +5,7 @@ import { getCharacterSprite } from '../../utils/get-character-sprite';
 
 type CharacterData = VnData['characters'];
 
-type CharacterInstance = {
+export type CharacterInstance = {
   id: string;
   sprite: string | null;
   position: Position;
@@ -43,14 +43,28 @@ export function useSceneController({
               action.sprite,
               characterData?.sprites ?? null,
             );
-            setCharacters((characters) => [
-              ...characters,
-              {
-                id: action.characterId,
-                sprite: sprite,
-                position: action.position,
-              },
-            ]);
+            setCharacters((prevCharacters) => {
+              const hasCharacter = prevCharacters.some(
+                (char) => char.id === action.characterId,
+              );
+
+              if (hasCharacter) {
+                return prevCharacters.map((char) =>
+                  char.id === action.characterId
+                    ? { ...char, sprite, position: action.position }
+                    : char,
+                );
+              }
+
+              return [
+                ...prevCharacters,
+                {
+                  id: action.characterId,
+                  sprite,
+                  position: action.position,
+                },
+              ];
+            });
           }
           break;
       }

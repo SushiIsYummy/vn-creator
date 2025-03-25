@@ -4,13 +4,12 @@ import {
   useEffect,
   useState,
 } from 'react';
-import DialogueBox from '../DialogueBox/DialogueBox';
 import styles from './VisualNovelPlayer.module.css';
 import useResizePlayer from './use-resize-player';
 import type { Scene, VnData } from '../../vnData.types';
 import { getScene } from '../../utils/get-scene';
-import Character from '../Character/Character';
 import { useSceneController } from './use-scene-controller';
+import SceneRenderer from '../SceneRenderer/SceneRenderer';
 
 function VisualNovelPlayer({ vnData }: { vnData: VnData }) {
   const [currentScene] = useState<Scene | null>(
@@ -67,18 +66,7 @@ function VisualNovelPlayer({ vnData }: { vnData: VnData }) {
         onKeyDown={advanceAction}
         tabIndex={-1}
       >
-        <div className={styles.transparentGrid}></div>
-        <div className={styles.backgroundImage}></div>
-        <div className={styles.characters}>
-          {characters.map((character) => (
-            <Character
-              key={character.id}
-              position={character.position}
-              sprite={character.sprite}
-            />
-          ))}
-        </div>
-        <DialogueBox dialogue={dialogue} />
+        <SceneRenderer characters={characters} dialogue={dialogue} />
       </div>
     </div>
   );
