@@ -5,7 +5,7 @@ import { getCharacterSprite } from '../../utils/get-character-sprite';
 
 type CharacterData = VnData['characters'];
 
-type CharacterInstance = {
+export type CharacterInstance = {
   id: string;
   sprite: string | null;
   position: Position;
