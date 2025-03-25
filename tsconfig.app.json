@@ -17,11 +17,16 @@
 
     /* Linting */
     "strict": true,
+    "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "verbatimModuleSyntax": true,
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": ["src"]
